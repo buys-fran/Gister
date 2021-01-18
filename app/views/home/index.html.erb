@@ -1,2 +1,12 @@
 <div>
+  <%= form_for @image, :html => { :multipart => true } do |f| %>
+    <%= f.object.errors %>
+    <br />
+    <%= file_field(:image, :image) %>
+    <br />
+    <%= f.submit %>
+  <% end %>
+
+  <%# Form >> POST, image controller#create %>
+  <%#   Flash Validation message %>
 </div>
