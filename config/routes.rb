@@ -2,5 +2,5 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "home#index"
 
-  resources :images
+  resources :images, only: [:create, :show]
 end
