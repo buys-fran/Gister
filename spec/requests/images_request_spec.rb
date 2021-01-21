@@ -29,4 +29,19 @@ RSpec.describe 'Images', type: :request do
       end
     end
   end
+
+  describe '.show' do
+    context 'with a valid image' do
+      it 'works' do
+        user = create(:user)
+        image = create(:image)
+        sign_in user
+
+        get image_path(image)
+
+        expect(response.status).to eq(200)
+        expect(controller.view_assigns['image']).not_to be_nil
+      end
+    end
+  end
 end
